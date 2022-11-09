@@ -1,0 +1,4 @@
+royalBot-Discord.js-Bot/plugins/
+node_modules/
+npm-debug.log
+.env
