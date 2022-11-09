@@ -1,4 +1,4 @@
-<h1 style="color: blue">EclipsBot</h1> 
+<h1 style="color: blue">royalBot</h1> 
 <p><span>A simple management bot for EclipsCloud</span></p>
 <p>for any request concerning the development of the plugin please contact <i>royal - EclipsCloud#7040</i></p>
 
