@@ -28,28 +28,29 @@ async function registerBasicCommands() {
     }
     const files = fs.readdirSync(__dirname + "/" + "plugins");
     nbr = files.length;
-    for (const file of files){
-       fs.lstat(__dirname + "/" + "plugins" + "/" + file, (err, stats) => {
-            if (stats.isDirectory()){
+    for (const file of files) {
+        fs.lstat(__dirname + "/" + "plugins" + "/" + file, (err, stats) => {
+            if (stats.isDirectory()) {
                 const pluginFolder = __dirname + "/" + "plugins" + "/" + file;
-                const commandsPath = pluginFolder  + "/" + 'interactions'+ "/" + 'commands';
+                const commandsPath = pluginFolder + "/" + 'interactions' + "/" + 'commands';
                 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
                 for (const file of commandFiles) {
-                    const filePath =commandsPath   + "/" + file;
+                    const filePath = commandsPath + "/" + file;
                     const command = require(filePath);
                     console.log("Commande détéctée: " + command.data.name + "✅")
                     commands.push(command.data.toJSON());
                 }
             }
         })
-       fs.lstat(__dirname + "/" + "plugins" + "/" + file, (err, stats) => {
-            if (stats.isDirectory()){
+        fs.lstat(__dirname + "/" + "plugins" + "/" + file, (err, stats) => {
+            if (stats.isDirectory()) {
                 const pluginFolder = __dirname + "/" + "plugins" + "/" + file;
-                const commandsPath = pluginFolder  + "/" +'interactions' + "/"+'modals';
+                const commandsPath = pluginFolder + "/" + 'interactions' + "/" + 'contexts';
                 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
                 for (const file of commandFiles) {
-                    const filePath =commandsPath   + "/" + file;
+                    const filePath = commandsPath + "/" + file;
                     const command = require(filePath);
+                    console.log(command)
                     console.log("Commande détéctée: " + command.data.name + "✅")
                     commands.push(command.data.toJSON());
                 }
@@ -59,13 +60,19 @@ async function registerBasicCommands() {
         nbr2++;
     }
 }
+
 registerBasicCommands().then(async () => {
-   let inter =  setInterval(async () => {
+
+   /*
+    await rest.put(
+        Routes.applicationCommands(process.env.CLIENT_ID),
+        {body: []},
+    );
+    */
+    let inter =  setInterval(async () => {
         if (nbr === nbr2){
             try {
                 console.log('Started refreshing application (/) commands.');
-
-
                 await rest.put(
                     Routes.applicationCommands(process.env.CLIENT_ID),
                     {body: commands},

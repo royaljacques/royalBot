@@ -2,7 +2,6 @@
   "interaction": {
     "annonce": true,
     "avis": true,
-    "ban": true,
     "clear": true,
     "eval": true,
     "ping": true,

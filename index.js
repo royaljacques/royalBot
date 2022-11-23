@@ -6,11 +6,8 @@ const pluginLoader = require("./pluginLoader");
 require('dotenv').config();
 const commandsLoader = require("./utils/commandsLoader");
 
-console.log(process.env.MONGO_URI)
 database.connect(process.env.MONGO_URI).then(async (e) => {
-
-
-
+    console.log("connection vers mongodb")
    }).catch((err) => { console.log(err) });
 
 const client = new Client({intents: [3276799], partials: [Partials.Message, Partials.Channel, Partials.Reaction, Partials.GuildMember]});
