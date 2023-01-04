@@ -1,6 +1,8 @@
 <h1 style="color: blue">EclipsBot</h1> 
 <p><span>Un simple bot des gestion pour EclipsCloud</span></p>
-<p>pour toutes demande concernant le développement du plugin merci de contacter <i>royal - EclipsCloud#7040</i></p>
+<p>pour toutes demande concernant le développement du plugin merci de contacter <i>royal#0624</i></p>
+
+discord : https://discord.gg/rjX9YCQFem
 
 <h2><u>plugins payants</u></h2>
 
